@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+.nav-list {
+    display: flex;
+    justify-content: center;
+    background: #000;
+    & button {
+        background: transparent;
+        border: solid #fcd01c 2px;
+        color: #fcd01c;
+        &:hover,
+        &:focus-within {
+            background: #fcd01c;
+            border: solid #000 2px;
+            color: #000;
+        }
+    }
+}

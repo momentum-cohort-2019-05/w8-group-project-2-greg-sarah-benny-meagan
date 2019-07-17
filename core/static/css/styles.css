@@ -1,0 +1,39 @@
+/* line 1, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* line 7, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 11, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 14, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+.nav-list {
+  display: flex;
+  justify-content: center;
+  background: #000;
+}
+
+/* line 18, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+.nav-list button {
+  background: transparent;
+  border: solid #fcd01c 2px;
+  color: #fcd01c;
+}
+
+/* line 22, ../../../../../../../../../../../../../Users/bkoval/workspace/w8-group-project-2-greg-sarah-benny-meagan/core/static/scss/styles.scss */
+.nav-list button:hover, .nav-list button:focus-within {
+  background: #fcd01c;
+  border: solid #000 2px;
+  color: #000;
+}
+
+/*# sourceMappingURL=styles.css.map */

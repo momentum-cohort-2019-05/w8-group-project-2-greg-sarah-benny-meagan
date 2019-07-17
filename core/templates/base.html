@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'main.js' %}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><button><a href="#">Species</a></button></li>
+                <li><button><a href="#">Beekeeping</a></button></li>
+                <li><button><a href="#">Causes</a></button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="content">{% block content %}{% endblock %}</div>
+    </main>
+</body>
+</html>
