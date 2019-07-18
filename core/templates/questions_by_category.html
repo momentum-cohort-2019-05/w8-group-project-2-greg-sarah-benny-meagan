@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{questions_by_category.category}}</h1>
+
+<ul class="list-by-category">
+    {% for question in questions_by_category %}
+    <li><a href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
+</ul>
+{% endfor %}
+
+{% endblock %}>

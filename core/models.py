@@ -28,6 +28,16 @@ class Answer(models.Model):
     """Model representing an answer to a posted question."""
     body = models.TextField(max_length=1000, help_text='Enter your answer')
     question = models.ForeignKey(to=Question, on_delete=models.CASCADE)
+    timestamp = models.DateField(auto_now_add=True)
+
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='answerer')
+
+    class Meta:
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.body
 
 class Category(models.Model):
     category_name = models.CharField(max_length=200)
