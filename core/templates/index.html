@@ -9,4 +9,10 @@
             <li class="facts">Bees are the only insect in the world that make food that humans can eat.</li>
         </ul>
 </div>
+
+<ul class="question-list">
+    {% for question in question_list %}
+        <li><a href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
+</ul>
+{% endfor %}
 {% endblock %}
