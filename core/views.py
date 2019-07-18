@@ -1,29 +1,37 @@
-from django.shortcuts import render
-from core.models import Question
-from core.forms import QuestionForm
-import django.contrib.auth.decorators 
-
-
-# Create your views here.
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
+from django.http import HttpResponseRedirect
+from core.models import Question, Answer
+from core.forms import QuestionForm, AnswerForm
+from core import views
+# import django.contrib.auth.decorators
+# from django.contrib.auth.decorators import login_required
 
 def index(request):
-    questions = Question.objects.all()
+    """View function for home page of site, which includes a list of all questions."""
 
+    question_list = Question.objects.all()
+        
     context = {
-        'questions': question
-    }
-    
+        'question_list': question_list,
+    }    
     return render(request, 'index.html', context)
 
+def question_detail(request, pk):
+    """Individual question pages, which includes all answers to a given question."""
 
-def question(request):
-    question = Question.objects.all()
+    question = get_object_or_404(Question, pk=pk)
+
+    return render(request, 'detail.html', {'question':question})
+
+def questions_by_category(request, category_pk):
+    questions_by_category = Question.objects.filter(categories__pk=category_pk)
+    category = get_object_or_404(Category, pk=category_pk)
 
     context = {
-        'question': question
+        'questions_by_category': questions_by_category,
+        'category': category,
     }
 
-    return render(request, 'core/question', context)
-
-
+    return render(request, 'questions_by_category.html', context)
 
