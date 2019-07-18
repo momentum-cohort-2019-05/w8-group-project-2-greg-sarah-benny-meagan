@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ question.title }}</h1>
+
+  <p><strong>Summary</strong> {{ question.body }}</p>
+  <p><strong>Post date: </strong>{{ question.timestamp }}</a></p>
+  <p><strong>Asked By: </strong><a href="{{ question.user.get_absolute_url }}">{{ question.user.username }}</a></p>
+
+  <div>
+    <h4>Answers</h4>
+
+    <!-- DO WE NEED SOME SORT OF IF STATEMENT FOR EMPTY ANSWERS???? -->
+    {% for answer in question.answer_set.all %}
+    <hr>
+    <p>
+        {{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}
+    </p>
+    {% endfor %}
+  </div>
+{% endblock %}
