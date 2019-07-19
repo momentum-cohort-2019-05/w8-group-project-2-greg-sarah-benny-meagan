@@ -3,4 +3,25 @@
 
 },{}]},{},[1]);
 
+const markAnswerCorrect = document.querySelectorAll('markAnswerCorrect')
+    
+    for (button of markAnswerCorrect) {
+        button.addEventListener('click', function(event){
+            console.log(event)
+        fetch(markAnswerCorrect( questionPk, answerPk )) 
+            .then(response => response.json())
+            .then(function (data) {
+                console.log('data', data);
+
+            })
+            .then(function () {
+                link.setAttribute('hidden', true);
+                let markAnswerCorrect = document.createElement('span');
+                correctMessage.innertext = 'correct answer';
+                link.parentElement.appendChild(correctMessage);
+            });
+        });
+    }
+
+
 },{}]},{},[1]);

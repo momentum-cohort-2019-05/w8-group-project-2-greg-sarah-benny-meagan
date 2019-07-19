@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.http import HttpResponseRedirect
-from core.models import Question, Answer
+from core.models import Question, Answer, Category
 from core.forms import QuestionForm, AnswerForm
 from core import views
 # import django.contrib.auth.decorators
@@ -11,9 +11,11 @@ def index(request):
     """View function for home page of site, which includes a list of all questions."""
 
     question_list = Question.objects.all()
+    # category_name = get_object_or_404(Category, category_name='Species')
         
     context = {
         'question_list': question_list,
+        # 'category_name': category_name,
     }    
     return render(request, 'index.html', context)
 
@@ -34,4 +36,9 @@ def questions_by_category(request, category_pk):
     }
 
     return render(request, 'questions_by_category.html', context)
+
+def mark_answer_correct(request, pk):
+    answer = get_object_or_404(Answer, pk=pk)
+    answer.correct = True
+    
 

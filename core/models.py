@@ -28,7 +28,12 @@ class Answer(models.Model):
     """Model representing an answer to a posted question."""
     body = models.TextField(max_length=1000, help_text='Enter your answer')
     question = models.ForeignKey(to=Question, on_delete=models.CASCADE)
+    correct = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.body
+
+    # star = models.ManytoManyField(User, through='AnswerStar', related_name="answerstars")
 class Category(models.Model):
     category_name = models.CharField(max_length=200)
 
