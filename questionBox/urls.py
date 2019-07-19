@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
 from django.views.generic import RedirectView
 
@@ -24,4 +24,5 @@ urlpatterns = [
     path('question/<int:pk>/', views.question_detail, name='question'),
     path ('category-list/<int:category_pk>', views.questions_by_category, name='category-list'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.simple.urls')),
 ]
