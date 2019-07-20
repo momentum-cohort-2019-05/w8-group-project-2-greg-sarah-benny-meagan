@@ -133,3 +133,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'webmaster@beehub.org'
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
