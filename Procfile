@@ -1,0 +1,1 @@
+web: gunicorn bee-hub1.wsgi
