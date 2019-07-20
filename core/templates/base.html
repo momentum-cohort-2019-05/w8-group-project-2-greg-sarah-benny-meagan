@@ -13,6 +13,16 @@
 </head>
 <body>
     <header>
+            <div class="float-class">
+                    <ul class="buttons-container">
+                        {% if request.user.is_authenticated %}
+                        <li class="actual-button-list"><a href="{% url 'auth_logout' %}"><button type="button">Logout</button></a></li>
+                        {% else %}
+                      <li class="actual-button-list"><a href="{% url 'auth_login' %}"><button type="button">Login</button></a></li>
+                      <li class="actual-button-list"><a href="{% url 'registration_register' %}"><button type="button">Signup</button></a></li>
+                        {% endif %}
+                    </ul>
+                  </div>
         <div class="title-and-nav-container">
             <h1 class="title">BeeHub</h1>
                 <h2 class="detail">Your ultimate resource for all things bee!</h2>
