@@ -3,6 +3,8 @@ from django.views import generic
 from django.http import HttpResponseRedirect
 from core.models import Question, Answer, Category
 from core.forms import QuestionForm, AnswerForm
+from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
 from core import views
 # import django.contrib.auth.decorators
 # from django.contrib.auth.decorators import login_required
@@ -37,3 +39,14 @@ def questions_by_category(request, category_pk):
 
     return render(request, 'questions_by_category.html', context)
 
+def question_form(request):
+    if request.method == "POST":
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            post.save()
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(next)
+    else:
+        form = QuestionForm()
+        # args = {'form': form}
+    return render(request, 'question_form.html', {'form': form})
