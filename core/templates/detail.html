@@ -2,6 +2,11 @@
 
 {% block content %}
   <h1>{{ question.title }}</h1>
+  <div class='markQuestionLiked'>
+    
+    <button>Like</button>
+    <hr>
+    </div>
 
   <p><strong>Summary</strong> {{ question.body }}</p>
   <p><strong>Post date: </strong>{{ question.timestamp }}</a></p>
@@ -12,6 +17,11 @@
 
     <!-- DO WE NEED SOME SORT OF IF STATEMENT FOR EMPTY ANSWERS???? -->
     {% for answer in question.answer_set.all %}
+    <div class='markAnswerLiked'>
+    
+      <button data-answerpk="{{answer.pk}}">Like</button>
+      <hr>
+      </div>
     <hr>
     <p>
         {{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}
@@ -19,3 +29,5 @@
     {% endfor %}
   </div>
 {% endblock %}
+
+

@@ -7,32 +7,36 @@
 const markAnswerLiked = document.querySelectorAll('.markAnswerLiked')
 
 let answerPk = document.querySelector('#answerdisplay').dataset['answerpk']
-    for (let button of markAnswerLiked) {
-        button.addEventListener('click', function(event){
-            console.log(event)
-        fetch('markanswerliked/'( answerPk )) 
-            .then(response => response.json())
-            .then(function (data) {
-                console.log('data', data);
 
-            })
-           
-        });
-    }
+for (let button of markAnswerLiked) {
+    button.addEventListener('click', function(event){
+        console.log(event)
+        event.preventDefault();
+    fetch('markanswerliked/'( answerPk )) 
+        .then(response => response.json())
+        .then(function (data) {
+            console.log('data', data);
+
+        })
+        
+    });
+}
 
 
 const markQuestionLiked = document.querySelectorAll('.markQuestionLiked')
 
 let questionPk = document.querySelector('#questiondisplay').dataset['questionpk']
-    for (let button of markQuestionLiked) {
-        button.addEventListener('click', function(event){
-            console.log(event)
-        fetch('markquestionliked/'( questionPk )) 
-            .then(response => response.json())
-            .then(function (data) {
-                console.log('data', data);
 
-            })
-           
-        });
-    }
+for (let button of markQuestionLiked) {
+    button.addEventListener('click', function(event){
+        console.log(event)
+        event.preventDefault();
+    fetch('markquestionliked/'( questionPk )) 
+        .then(response => response.json())
+        .then(function (data) {
+            console.log('data', data);
+
+        })
+        
+    });
+}

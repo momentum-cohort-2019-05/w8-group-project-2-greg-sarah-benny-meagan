@@ -50,14 +50,8 @@ def QuestionListView(request):
     return render(request, 'index.html', context=context)
 
 
-def mark_answer_liked(request, pk):
-    answer = get_object_or_404(Answer, pk=pk)
-    answer.liked = True
 
-
-def mark_question_liked(request, pk):
-    question = get_object_or_404(Question, pk=pk)
-    question.liked = True
+    
 
 
 
