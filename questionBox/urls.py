@@ -25,6 +25,8 @@ urlpatterns = [
     path('question/<int:pk>/', views.question_detail, name='question'),
     path ('category-list/<int:category_pk>', views.questions_by_category, name='category-list'),
     path('admin/', admin.site.urls),
+    path('markanswerliked/', views.mark_answer_liked, name='markanswerliked')
+    path('markquestionliked/', views.mark_question_liked, name='markquestionliked')
     # path('accounts/', include('registration.backends.default.urls')),
     # path('question-list/', views.questionListView, name='question-list'),
 ]
