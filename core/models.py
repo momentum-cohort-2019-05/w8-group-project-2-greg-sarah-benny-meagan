@@ -29,6 +29,7 @@ class Answer(models.Model):
     body = models.TextField(max_length=1000, help_text='Enter your answer')
     question = models.ForeignKey(to=Question, on_delete=models.CASCADE)
     timestamp = models.DateField(auto_now_add=True)
+    correct = models.BooleanField(default=False)
 
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='answerer')
 

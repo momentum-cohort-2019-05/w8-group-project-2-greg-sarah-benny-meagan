@@ -4,6 +4,8 @@
 const markLiked = document.querySelectorAll('.mark-liked')
 let count = 0;
 let display = document.querySelectorAll(".count-liked");
+const markAnswerCorrect = document.querySelectorAll('.markAnswerCorrect')
+let answerPk = document.querySelector('#answerdisplay').dataset['answerpk']
 
 console.log(count)
 for (let button of markLiked) {
@@ -17,3 +19,32 @@ for (let button of markLiked) {
         console.log(count);
     });
 }
+
+for (let button of markAnswerCorrect) {
+    button.addEventListener('click', function(event){
+        console.log(event)
+    fetch('markanswercorrect/'( answerPk )) 
+        .then(response => response.json())
+        .then(function (data) {
+            console.log('data', data);
+
+        })
+
+    });
+}
+
+// function answerQuestion(jquery???) {
+
+//     for (let form of document.querySelectorAll('.answer-question-form')) {
+//         form.addEventListener('submit', function (event) {
+//           event.preventDefault()
+
+//         const questionPK = jquery???.data(questionPK)
+
+//         fetch(requests.answerQuestion(questionPK))
+//             .then(res => res.json())
+//             .then(function(data) {
+//         console.log('data', data)
+//         })
+//     } 
+// }

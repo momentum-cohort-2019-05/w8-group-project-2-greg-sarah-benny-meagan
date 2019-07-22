@@ -26,4 +26,5 @@ urlpatterns = [
     path('question/new/', views.question_form, name='new'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('markanswercorrect/', views.mark_answer_correct, name='markanswercorrect')
 ]

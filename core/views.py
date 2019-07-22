@@ -3,7 +3,7 @@ from django.views import generic
 from django.http import HttpResponseRedirect
 from django import forms
 from core.models import Question, Answer, Category
-from core.forms import QuestionForm
+from core.forms import QuestionForm, AnswerForm
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from core import views
@@ -46,10 +46,29 @@ def question_form(request):
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
-            form.save()
+            question = form.save(commit=False)
+            question.user = request.user
+            question.save()
             next = request.POST.get('next', '/')
             return HttpResponseRedirect(next)
     else:
         form = QuestionForm()
-        # args = {'form': form}
     return render(request, 'question_form.html', {'form': form})
+
+@login_required
+def answer_form(request):
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.user = request.user
+            answer.save()
+            next = request.POST.get('next', '/')
+            return HttpResponseRedirect(next)
+    else:
+        form = AnswerForm()
+    return render(request, 'detail.html', {'form': form})
+
+def mark_answer_correct(request, pk):
+    answer = get_object_or_404(Answer, pk=pk)
+    answer.correct = True

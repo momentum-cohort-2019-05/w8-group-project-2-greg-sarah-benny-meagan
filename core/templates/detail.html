@@ -6,23 +6,40 @@
   <button class="mark-liked" value="count">Like</button>
   <p class="count-liked">0</p>
   <h1>{{ question.title }}</h1>
-
   <p><strong>Summary</strong> {{ question.body }}</p>
   <p><strong>Post date: </strong>{{ question.timestamp }}</a></p>
   <p><strong>Asked By: </strong><a href="{{ question.user.get_absolute_url }}">{{ question.user.username }}</a></p>
 
-  <div>
+<div>
   
     <h4>Answers</h4>
 
-    <!-- DO WE NEED SOME SORT OF IF STATEMENT FOR EMPTY ANSWERS???? -->
     {% for answer in question.answer_set.all %}
+
+    <div class='markAnswerCorrect'>
+    <button>test</button>
+    <hr>
+    </div>
+
     <button class="mark-liked" value="count">Like</button>
     <p class="count-liked">0</p>
-    
-    <p>
-        {{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}
-    </p>
+
+    <p>{{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}</p>
     {% endfor %}
+
+  <div class="form-container">
+      <form method="POST" class="post-form" novalidate>
+          {% csrf_token %}
+          {{ form }}
+          <table>
+              <th>{{ field.help_text}}</th>
+              <td>
+                  {{ field }}
+              </td>
+          </table>
+          <button type="submit">Reply</button>
+      </form>
   </div>
+
+</div>
 {% endblock %}

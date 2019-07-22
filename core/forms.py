@@ -1,14 +1,16 @@
 from django import forms
 
-from core.models import Question
+from core.models import Question, Answer
 
 class QuestionForm(forms.ModelForm):
     
     class Meta:
         model = Question
-        fields = ('title', 'body', 'categories', 'user',)
+        fields = ('title', 'body', 'categories',)
 
 
-# class AnswerForm(forms.ModelForm):
-#     model = Answer
-#     fields = ('title', 'categories')
+class AnswerForm(forms.ModelForm):
+
+    class Meta:
+        model = Answer
+        fields = ('body',)
