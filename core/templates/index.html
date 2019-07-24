@@ -1,6 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+<header>
+    <div class="title-and-nav-container">
+            <nav class="no-pad">
+                <ul class="nav-list">
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'auth_logout' %}"><button class="login-buttons" type="button">Logout</button></a></li>
+                    {% else %}
+                    <li><a href="{% url 'auth_login' %}"><button class="login-buttons" type="button">Login</button></a></li>
+                    <li><a href="{% url 'registration_register' %}"><button class="login-buttons"  type="button">Signup</button></a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <div class="icon-container">
+                <img class="bee-icon" src="/static/images/bee-bee.png">
+            </div>
+            <h1 class="title">Beehub</h1>
+            <h2 class="detail">A community for bee enthusiasts to ask questions and learn from one another</h2>
+            <nav class="pad">
+                <ul class="nav-list">
+                    <li><button><a href="/category-list/5">Species</a></button></li>
+                    <li><button><a href="/category-list/6">Beekeeping</a></button></li>
+                    <li><button><a href="/category-list/7">Causes</a></button></li>
+                    <li><button><a href="{% url 'index' %}">Home</a></button></li>
+                </ul>
+            </nav>
+    </div>
+</header>
+<main>
+</main>
 <div class="bee-fact-container">
     <h2 class="bee-facts-title">Bee facts!</h2>
         <ul class="fact-container">
@@ -10,11 +39,11 @@
         </ul>
 </div>
 
-<p>{{ category_name.pk }}</p>
+<!-- <p>{{ category_name.pk }}</p> -->
 
-<ul class="question-list">
+<!-- <ul class="question-list">
     {% for question in question_list %}
         <li><a href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
-</ul>
-{% endfor %}
+</ul> -->
+<!-- {% endfor %} -->
 {% endblock %}

@@ -5,6 +5,11 @@
 }
 $poppins: 'Poppins', sans-serif;
 
+$babby: linear-gradient(
+    to bottom,
+    #FFE367, 
+    #EBB400
+);
 $honeycomb: linear-gradient(
     to bottom, 
     #FFE564, 
@@ -12,44 +17,77 @@ $honeycomb: linear-gradient(
 );
 
 a {
-    text-decoration: none;
     color: inherit;
     font-family: $poppins;
+}
+
+li {
+    list-style-type: none;
 }
 
 
 ul {
     list-style-type: none;
 }
+
 .title-and-nav-container {
     background: linear-gradient(#333, #222, #111);
-    padding: 80px;
+    height: 500px;
 }
 
 .title {
     font-family: $poppins;
     color: #fff;
-    font-size: 3rem;
+    font-size: 5rem;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 .detail {
     font-family: $poppins;
     color: #fff;
     font-size: 1.5rem;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
-nav {
+.pad {
     padding: 20px;
     & .nav-list {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         & button {
             text-transform: uppercase;
             font-size: 1rem;
             padding: 9px 18px;
+            background: transparent;
+            margin-left: 80px;
+            border: 2px solid transparent;
+            border-image: $honeycomb;
+            border-image-slice: 1;
+            letter-spacing: 1.2px;
+            color: #FFE564;
+            &:hover,
+            &:focus-within {
+                background: $honeycomb;
+                border: 2px solid transparent;
+                border-image: $honeycomb;
+                border-image-slice: 1;
+                color: #111;
+            }
+        }
+    }
+}
+
+.no-pad {
+    padding: 10px;
+    & .nav-list {
+        display: flex;
+        justify-content: flex-end;
+        & button {
+            text-transform: uppercase;
+            font-size: 1rem;
+            padding: 9px 18px;
+            margin-left: 80px;
             background: transparent;
             border: 2px solid transparent;
             border-image: $honeycomb;
@@ -68,6 +106,9 @@ nav {
     }
 }
 
+.login-buttons {
+    align-content: flex-end;
+}
 .bee-fact-container{
     display: flex;
     justify-content: center;
@@ -87,6 +128,14 @@ nav {
     opacity: 0.75;
 }
 
+.icon-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.bee-icon {
+    height: 150px;
+}
 .fact-container {
     display: flex;
 }
@@ -119,4 +168,68 @@ nav {
 
 .facts {
     padding: 20px;
+}
+
+// .content-container {
+//     display: flex;
+//     justify-content: center;
+// }
+
+.cat-name {
+    text-align: center;
+    font-size: 5rem;
+    font-family: $poppins;
+}
+
+.cat-list {
+    text-align: center;
+}
+
+.list-by-category {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.list-item-category {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.goodbye {
+    display: none;
+}
+
+.smol-nav {
+    background: linear-gradient(#333, #222, #111);
+    height: 90px;
+}
+
+.li-parent {
+    padding: 20px;
+    display: flex;
+}
+.li-item {
+    padding-top: 10px;
+    font-size: 1rem;
+    font-family: $poppins;
+    padding-left: 20px;
+    color: white;
+    text-transform: lowercase;
+}
+.beehub-title {
+    font-size: 1.8rem;
+    text-transform: lowercase;
+    font-family: $poppins;
+    background: $honeycomb;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bee-icon-smol {
+    height: 80px;
+    padding-bottom: 10px;
+}
+
+.content-container {
+    background: $babby;
+    height: 500px;
 }

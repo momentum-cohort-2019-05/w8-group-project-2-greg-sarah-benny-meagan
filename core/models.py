@@ -11,6 +11,7 @@ class Question(models.Model):
     body = models.TextField(max_length=1000, help_text='Enter details about your question')
     categories = models.ManyToManyField('Category')
     timestamp = models.DateField(auto_now_add=True)
+    liked = models.PositiveSmallIntegerField(default=0)
 
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='question_asker')
 
@@ -18,7 +19,7 @@ class Question(models.Model):
         return reverse('questions', args=[str(self.pk)])
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ['timestamp']
 
     def __str__(self):
         """String for representing the Model object."""
@@ -30,11 +31,12 @@ class Answer(models.Model):
     question = models.ForeignKey(to=Question, on_delete=models.CASCADE)
     timestamp = models.DateField(auto_now_add=True)
     correct = models.BooleanField(default=False)
+    liked = models.PositiveSmallIntegerField(default=0)
 
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='answerer')
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ['timestamp']
 
     def __str__(self):
         """String for representing the Model object."""

@@ -1,11 +1,12 @@
-{% extends "base.html" %}
+{% extends "questions_by_category.html" %}
 {% load static %}
 
 {% block content %}
-
-  <button class="mark-liked" value="count">Like</button>
-  <p class="count-liked">0</p>
+  
   <h1>{{ question.title }}</h1>
+  <!-- <button class="mark-liked">Like</button>
+  <span class="count-liked">{{ question.liked }}</span> -->
+
   <p><strong>Summary</strong> {{ question.body }}</p>
   <p><strong>Post date: </strong>{{ question.timestamp }}</a></p>
   <p><strong>Asked By: </strong><a href="{{ question.user.get_absolute_url }}">{{ question.user.username }}</a></p>
@@ -16,19 +17,22 @@
 
     {% for answer in question.answer_set.all %}
 
-    <div class='markAnswerCorrect'>
-    <button>test</button>
-    <hr>
+    <div class="button-span-container">
+        <button data-pk="{{ answer.pk }}" class="mark-liked">Like</button>
+        <span class="count-liked">{{ answer.liked }}</span>
     </div>
 
-    <button class="mark-liked" value="count">Like</button>
-    <p class="count-liked">0</p>
+    <!-- <div class='markAnswerCorrect'>
+    <button>test</button>
+    <hr>
+    </div> -->
 
     <p>{{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}</p>
+    <hr>
     {% endfor %}
 
   <div class="form-container">
-      <form method="POST" class="post-form" novalidate>
+      <form method="POST" id="reply-form" class="reply-form" novalidate>
           {% csrf_token %}
           {{ form }}
           <table>
@@ -37,7 +41,7 @@
                   {{ field }}
               </td>
           </table>
-          <button type="submit">Reply</button>
+          <button id="reply" type="submit">Reply</button>
       </form>
   </div>
 
