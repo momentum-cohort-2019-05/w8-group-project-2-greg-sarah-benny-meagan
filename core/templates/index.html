@@ -1,6 +1,17 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'main.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Beehub</title>
+</head>
 <header>
     <div class="title-and-nav-container">
             <nav class="no-pad">
@@ -23,6 +34,7 @@
                     <li><button><a href="/category-list/5">Species</a></button></li>
                     <li><button><a href="/category-list/6">Beekeeping</a></button></li>
                     <li><button><a href="/category-list/7">Causes</a></button></li>
+                    <li><button><a href="/question/new/">Ask</a></button></li>
                     <li><button><a href="{% url 'index' %}">Home</a></button></li>
                 </ul>
             </nav>
@@ -31,19 +43,10 @@
 <main>
 </main>
 <div class="bee-fact-container">
-    <h2 class="bee-facts-title">Bee facts!</h2>
+    <h2 class="bee-facts-title">Sweet facts!</h2>
         <ul class="fact-container">
             <li class="facts">Honey bees gather nectar from two million flowers to make just one pound of honey.</li>
             <li class="facts">Honey bees communicate with one another by dancing.</li>
-            <li class="facts">Bees are the only insect in the world that make food that humans can eat.</li>
+            <li class="facts">Honey bees are the only insect in the world that make food that humans can eat.</li>
         </ul>
 </div>
-
-<!-- <p>{{ category_name.pk }}</p> -->
-
-<!-- <ul class="question-list">
-    {% for question in question_list %}
-        <li><a href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
-</ul> -->
-<!-- {% endfor %} -->
-{% endblock %}

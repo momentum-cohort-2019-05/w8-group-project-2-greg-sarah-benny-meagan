@@ -1,24 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-    <nav class="smol-nav">
-        <ul class="li-parent">
-            <li><img class="bee-icon-smol" src="/static/images/bee-bee.png"></li>
-            <li class="beehub-title">Beehub</li>
-            <li class="li-item"><a href="/category-list/5">Species</a></li>
-            <li class="li-item"><a href="/category-list/6">Beekeeping</a></li>
-            <li class="li-item"><a href="/category-list/7">Causes</a></li>
-            <li class="li-item"><a href="{% url 'index' %}">Home</a></li>
-            {% if request.user.is_authenticated %}
-            <li class="li-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
-            {% else %}
-            <li class="li-item"><a href="{% url 'auth_login' %}">Login</a></li>
-            <li class="li-item"><a href="{% url 'registration_register' %}">Signup</a></li>
-            {% endif %}
-        <ul>
-    </nav>
-</header>
 <div class="content-container">
 
     <h1 class="cat-name">{{category.category_name}}</h2>
@@ -26,10 +8,9 @@
 
     <ul class="list-by-category">
         {% for question in questions_by_category %}
-        <li class="list-item-category"><a href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
+        <li class="list-item-category"><a class="question-link" href="{% url 'question' question.pk %}">{{ question.title }}</a></li>
     </ul>
 
 {% endfor %}
 </div>
-<div class="goodbye">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 {% endblock %}>

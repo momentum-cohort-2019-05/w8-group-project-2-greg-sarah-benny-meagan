@@ -10,13 +10,21 @@ $babby: linear-gradient(
     #FFE367, 
     #EBB400
 );
+
+$brn: #38200b;
+
+$brn-lite: rgba(56, 32, 11, 0.3);
+
 $honeycomb: linear-gradient(
     to bottom, 
     #FFE564, 
     #E4B211
 );
 
+$offwht: #fffcd9;
+
 a {
+    text-decoration: none;
     color: inherit;
     font-family: $poppins;
 }
@@ -37,14 +45,14 @@ ul {
 
 .title {
     font-family: $poppins;
-    color: #fff;
+    color: $offwht;
     font-size: 5rem;
     text-align: center;
     padding: 10px;
 }
 .detail {
     font-family: $poppins;
-    color: #fff;
+    color: $offwht;
     font-size: 1.5rem;
     text-align: center;
     padding: 10px;
@@ -54,13 +62,12 @@ ul {
     padding: 20px;
     & .nav-list {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         & button {
             text-transform: uppercase;
             font-size: 1rem;
             padding: 9px 18px;
             background: transparent;
-            margin-left: 80px;
             border: 2px solid transparent;
             border-image: $honeycomb;
             border-image-slice: 1;
@@ -79,7 +86,7 @@ ul {
 }
 
 .no-pad {
-    padding: 10px;
+    padding: 20px;
     & .nav-list {
         display: flex;
         justify-content: flex-end;
@@ -121,7 +128,7 @@ ul {
     left: 0;
     top: 0;
     width: 100%;
-    height: 550px;
+    height: 500px;
     background-size: cover;
     position: relative;
     z-index: 1;
@@ -134,14 +141,15 @@ ul {
     justify-content: center;
 }
 .bee-icon {
-    height: 150px;
+    height: 130px;
+    filter: drop-shadow(2px 1px 3.5px $offwht);
 }
 .fact-container {
     display: flex;
 }
   
 .bee-facts-title {
-    color: #38200b;
+    color: $brn;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
@@ -162,7 +170,7 @@ ul {
     z-index: 2;
     display: block;
     font-size: 1.8rem;
-    color: #38200b;
+    color: $brn;
     text-shadow: 2px 2px 3px #f3efb1;
 }
 
@@ -170,38 +178,32 @@ ul {
     padding: 20px;
 }
 
-// .content-container {
-//     display: flex;
-//     justify-content: center;
-// }
-
 .cat-name {
+    padding-top: 20px;
     text-align: center;
-    font-size: 5rem;
+    font-size: 3rem;
     font-family: $poppins;
-}
-
-.cat-list {
-    text-align: center;
+    color: $brn;
 }
 
 .list-by-category {
     text-align: center;
-    font-size: 2rem;
 }
 
 .list-item-category {
     text-align: center;
-    font-size: 4rem;
+    font-size: 1.5rem;
+    color: $brn;
+    padding: 10px;
 }
 
-.goodbye {
-    display: none;
+.question-link {
+    border-bottom: 2px $brn solid;
 }
 
 .smol-nav {
     background: linear-gradient(#333, #222, #111);
-    height: 90px;
+    height: 80px;
 }
 
 .li-parent {
@@ -213,7 +215,7 @@ ul {
     font-size: 1rem;
     font-family: $poppins;
     padding-left: 20px;
-    color: white;
+    color: $offwht;
     text-transform: lowercase;
 }
 .beehub-title {
@@ -221,15 +223,67 @@ ul {
     text-transform: lowercase;
     font-family: $poppins;
     background: $honeycomb;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .bee-icon-smol {
     height: 80px;
-    padding-bottom: 10px;
+    margin-top: -20px;
+    filter: drop-shadow(2px 1px 3px $offwht);
 }
 
 .content-container {
     background: $babby;
-    height: 500px;
+    height: 600px;
+}
+
+#login-stuff {
+    display: flex;
+    padding-left: 48%;
+    justify-content: flex-end;
+}
+
+// #flex-end {
+//     align-self: baseline;
+// }
+
+.title-q {
+    text-align: center;
+    margin-left: 100px;
+    font-family: $poppins;
+    display: inline-block;
+    color: $brn;
+}
+.body-t {
+    text-align: center;
+    font-family: $poppins;
+    color: $brn;
+}
+
+.body-q {
+    text-align: center;
+    font-family: $poppins;
+    color: $brn;
+}
+.body-u {
+    text-align: center;
+    color: $brn;
+}
+#question-like {
+    text-align: center;
+}
+
+.move {
+    margin-left: 60px;
+}
+
+hr {
+    border-color: $brn-lite;
+    margin-bottom: 20px;
+}
+
+.ea-answer {
+    font-family: $poppins;
+    color: $brn;
 }

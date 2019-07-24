@@ -1,19 +1,18 @@
-{% extends "questions_by_category.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-  
-  <h1>{{ question.title }}</h1>
-  <!-- <button class="mark-liked">Like</button>
-  <span class="count-liked">{{ question.liked }}</span> -->
+  <div class="content-container">
 
-  <p><strong>Summary</strong> {{ question.body }}</p>
-  <p><strong>Post date: </strong>{{ question.timestamp }}</a></p>
-  <p><strong>Asked By: </strong><a href="{{ question.user.get_absolute_url }}">{{ question.user.username }}</a></p>
+  <div class="button-span-container" id="question-like">
+     <h1 class="title-q">{{ question.title }}</h1>
+     <button class="mark-liked move">Like</button>
+     <span class="count-liked">{{ question.liked }}</span>
+  </div>
 
-<div>
-  
-    <h4>Answers</h4>
+  <p class="body-q">{{ question.body }}</p>
+  <p class="body-t">{{ question.timestamp }}</a></p>
+  <p class="body-u"><a href="{{ question.user.get_absolute_url }}">{{ question.user.username }}</a></p>
 
     {% for answer in question.answer_set.all %}
 
@@ -22,12 +21,7 @@
         <span class="count-liked">{{ answer.liked }}</span>
     </div>
 
-    <!-- <div class='markAnswerCorrect'>
-    <button>test</button>
-    <hr>
-    </div> -->
-
-    <p>{{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}</p>
+    <p class="ea-answer">{{ answer.user.username }} ({{ answer.timestamp }}) - {{ answer.body }}</p>
     <hr>
     {% endfor %}
 

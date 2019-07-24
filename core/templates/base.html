@@ -13,6 +13,31 @@
     <title>Beehub</title>
 </head>
 <body>
-        <div class="content">{% block content %}{% endblock %}</div>
+    
+<header>
+    <nav class="smol-nav">
+        <ul class="li-parent">
+            <li><img class="bee-icon-smol" src="/static/images/bee-bee.png"></li>
+            <li class="beehub-title">Beehub</li>
+            <li class="li-item"><a href="/category-list/5">Species</a></li>
+            <li class="li-item"><a href="/category-list/6">Beekeeping</a></li>
+            <li class="li-item"><a href="/category-list/7">Causes</a></li>
+            <li class="li-item"><a href="{% url 'index' %}">Home</a></li>
+            <div id="login-stuff">
+            {% if request.user.is_authenticated %}
+            <li class="li-item" id="flex-end"><a href="{% url 'auth_logout' %}">Logout</a></li>
+            {% else %}
+            <li class="li-item" id="flex-end"><a href="{% url 'auth_login' %}">Login</a></li>
+            <li class="li-item" id="flex-end"><a href="{% url 'registration_register' %}">Signup</a></li>
+            {% endif %}
+            </div>
+        <ul>
+    </nav>
+</header>    
+
+<main>
+    <div class="content">{% block content %}{% endblock %}</div>
+</main>
+
 </body>
 </html>
